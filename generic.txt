@@ -1,0 +1,163 @@
+focus_tree = {
+	id = generic_focus
+	
+	country = {
+		factor = 1
+	}
+	
+	default = yes
+	reset_on_civilwar = no
+
+#army effort
+
+#Study Foreign Design
+focus = {
+	id = study_foreign_design
+	icon = GFX_goal_continuous_reduce_training_time
+	x = 0
+	y = 1
+	prerequisite = { focus = prepare_for_conflict  }
+	cost = 6
+	available_if_capitulated = yes
+	completion_reward = {
+		
+					add_tech_bonus = {
+						name = infantry_artillery_bonus
+						bonus = 1.0
+						uses = 1
+						category = infantry_weapons
+						category = artillery
+					}
+				
+	}
+}
+
+#Prepare for Conflict
+focus = {
+	id = prepare_for_conflict
+	icon = GFX_focus_generic_strike_at_democracy1
+	x = 1
+	y = 0
+	cost = 5
+	available_if_capitulated = yes
+	completion_reward = {
+		
+					army_experience = 20
+					add_equipment_to_stockpile = {
+						type = infantry_equipment_1
+						amount = 100
+						variant_name = "Mauser Rifles"
+					
+					}
+				
+	}
+}
+
+#Fabricate our Own Weapons
+focus = {
+	id = fabricate_our_own_weapons
+	icon = GFX_goal_generic_construct_mil_factory
+	x = 0
+	y = 2
+	prerequisite = { focus = study_foreign_design  }
+	cost = 10
+	completion_reward = {
+		
+					random_owned_controlled_state = {
+						limit = {
+							free_building_slots = {
+								building = arms_factory
+								size > 0
+								include_locked = yes
+							}
+							OR = {
+								is_in_home_area = yes
+								NOT = {
+									owner = {
+										any_owned_state = {
+											free_building_slots = {
+												building = arms_factory
+												size > 0
+												include_locked = yes
+											}
+											is_in_home_area = yes
+										}
+									}
+								}
+							}
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+					}
+				
+	}
+}
+
+#Developing our Things
+focus = {
+	id = developing_our_things
+	icon = GFX_focus_research
+	x = 2
+	y = 1
+	cost = 5
+
+	prerequisite = { focus = prepare_for_conflict  }
+	completion_reward = {
+		
+		add_research_slot = 1
+				
+	}
+}
+
+#Mine for Steel
+focus = {
+	id = mine_for_steel
+	icon = GFX_focus_generic_steel
+	x = 0
+	y = 3
+	prerequisite = { focus = fabricate_our_own_weapons  }
+	cost = 10
+	completion_reward = {
+		
+					random_owned_controlled_state = {
+						add_resource = {
+							type = steel
+							amount = 10
+						}
+					}
+				
+	}
+}
+
+#Steal from our Neighbours
+focus = {
+	id = steal_from_our_neighbours
+	icon = GFX_focus_ETH_freedom_at_gunpoint
+	x = 2
+	y = 2
+	prerequisite = { focus = developing_our_things  }
+	cost = 5
+	completion_reward = {
+		
+					add_tech_bonus = {
+						name = infantry_artillery_bonus
+						bonus = 1.0
+						uses = 1
+						category = infantry_weapons
+						category = artillery
+					}
+		
+					add_equipment_to_stockpile = {
+						type = infantry_equipment_1
+						amount = 500
+						variant_name = "Mauser Rifles"
+					}
+				
+		}
+	}
+
+}
