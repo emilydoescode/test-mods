@@ -1,0 +1,92 @@
+﻿focus_tree = {
+	id = generic_focus
+	
+	country = {
+		factor = 1
+	}
+	
+	default = yes
+	reset_on_civilwar = no
+
+#army effort
+
+	focus = {
+		id = prepare_for_conflict
+		icon = GFX_goal_generic_small_arms
+		x = 1
+		y = 0
+		cost = 5
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 20
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 100
+				variant_name = "Mauser Rifles"
+			
+			}
+		}
+	}
+
+	focus = {
+		id = study_foreign_design
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = prepare_for_conflict }
+		x = 1
+		y = 1
+		relative_position_id = prepare_for_conflict
+		cost = 6
+
+
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = infantry_equipment
+			}
+		}
+	}
+
+#political
+	focus = {
+		id = mantain_independece
+		icon = GFX_goal_generic_small_arms
+		mutually_exclusive = { focus = talk_with_the_europeans }
+		x = 3
+		y = 0
+		cost = 5
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 100
+			}
+		}
+
+	focus = {
+		id = talk_with_the_europeans
+		icon = GFX_focus_usa_focus_on_europe
+		mutually_exclusive = { focus = mantain_independece }
+		x = 2
+		y = 0
+		cost = 5
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			diplomatic_relation = {
+				country = ENG
+				relation = guarantee
+				active = no
+			}
+		}
+	}	
+}
+
