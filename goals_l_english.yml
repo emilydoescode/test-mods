@@ -1,0 +1,13 @@
+l_english:
+ prepare_for_conflict:0 "Prepare for Conflict"
+ prepare_for_conflict_desc:0 "In these times of worry, we must make sure our tribe can withstand the troubles of invasion and conflict."
+ study_foreign_design:0 "Study Foreign Design"
+ study_foreign_design_desc:0 "From time to time, certain bits of equipment land on our soil. We must take advantage of this."
+ fabricate_our_own_weapons:0 "Fabricate our Own Weapons"
+ fabricate_our_own_weapons_desc:0 "After studying those designs, we can finally produce our own weaponry."
+ developing_our_things:0 "Developing our Things"
+ developing_our_things:0 "To become better at tech, we must research it."
+ mine_for_metal:0 "Mine for Steel"
+ mine_for_steel_desc:0 "Our soil is rich in steel, we must use it for our own benefit."
+ steal_from_our_neighbours:0 "Steal from our Neighbours"
+ steal_from_our_neighbours:0 "Why make it when you can take it?"
